@@ -9,15 +9,15 @@ import lombok.*;
 public class Student {
     @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long studentRollNo;
+    private long studentRollNo;
     private String studentName;
     private String studentClass;
 
-    public Long getStudentRollNo() {
+    public long getStudentRollNo() {
         return studentRollNo;
     }
 
-    public void setStudentRollNo(Long studentRollNo) {
+    public void setStudentRollNo(long studentRollNo) {
         this.studentRollNo = studentRollNo;
     }
 

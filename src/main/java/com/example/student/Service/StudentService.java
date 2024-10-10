@@ -1,11 +1,11 @@
-package com.example.student.studentService;
-
+package com.example.student.Service;
 
 import com.example.student.Repository.StudentRepository;
 import com.example.student.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
+
 
 
 import java.util.List;
@@ -38,17 +38,6 @@ public class StudentService {
     }
 
 
-    public Optional<List<Student>> deleteListOfStudentsById(List<Long> studentRollNo) {
-        List<Student> students = repository.findAllById(studentRollNo); // Fetch all students by IDs
-
-        if (!students.isEmpty()) {
-            repository.deleteAllById(studentRollNo); // Delete the students by their IDs
-            return Optional.of(students);  // Return the list of deleted students
-        } else {
-            return Optional.empty(); // If no students found for the given IDs
-        }
-    }
-
 
     public Optional<Student> deleteById(long id){
         Optional<Student> student=repository.findById(id);
@@ -58,6 +47,17 @@ public class StudentService {
         }else {
             return Optional.empty();
         }
+    }
+
+    public boolean deleteByIds(List<Long> ids) {
+        List<Student> students = repository.findAllById(ids);
+        
+        if (students.size() != ids.size()) {
+            return false; // Not all IDs were found
+        }
+        
+        repository.deleteAll(students);
+        return true;
     }
 
     public Optional<Student> updateById(long id, Student updatedStudent) {
@@ -78,6 +78,11 @@ public class StudentService {
 
             return Optional.empty();
         }
+    }
+
+    
+    public List<Student> updateStudents(List<Student> students) {
+        return repository.saveAll(students);
     }
 
 }
