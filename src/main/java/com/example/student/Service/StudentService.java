@@ -19,15 +19,19 @@ public class StudentService {
 
 
 
+    //adding a list of data
     public List<Student> addData(List<Student> student){
 
         return repository.saveAll(student);
     }
 
+    //adding single Data
     public Student add(Student student){
         return repository.save(student);
     }
 
+
+    //Getting a list of Data
     public List<Student> get(){
         return repository.findAll();
     }
