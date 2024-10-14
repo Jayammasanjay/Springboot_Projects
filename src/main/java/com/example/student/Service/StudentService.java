@@ -25,7 +25,7 @@ public class StudentService {
             repository.saveAll(students);
             return true;
         } catch (Exception e) {
-            // Log the exception if needed
+            
             return false;
         }
     }
