@@ -40,6 +40,18 @@ public class TeachersService {
         }
     }
 
+    //Delete a Data By Id
+
+    public Optional<Teachers> deleteById(long id){
+        Optional<Teachers> teacher=teachersRepository.findById(id);
+        if(teacher.isPresent()){
+            teachersRepository.delete(teacher.get());
+            return teacher;
+        }else {
+            return Optional.empty();
+        }
+    }
+
     public List<Teachers> listOfData(){
         return teachersRepository.findAll();
 
