@@ -36,7 +36,7 @@ public class StudentService {
             repository.save(student); // Save the student
             return true; // Return true if save is successful
         } catch (Exception e) {
-            // Log the exception if needed
+            
             return false; // Return false if there's an exception
         }
     }
