@@ -20,15 +20,27 @@ public class StudentService {
 
 
     //adding a list of data
-    public List<Student> addData(List<Student> student){
-
-        return repository.saveAll(student);
+    public boolean addData(List<Student> students) {
+        try {
+            repository.saveAll(students);
+            return true;
+        } catch (Exception e) {
+            // Log the exception if needed
+            return false;
+        }
     }
 
     //adding single Data
-    public Student add(Student student){
-        return repository.save(student);
+    public boolean add(Student student) {
+        try {
+            repository.save(student); // Save the student
+            return true; // Return true if save is successful
+        } catch (Exception e) {
+            // Log the exception if needed
+            return false; // Return false if there's an exception
+        }
     }
+
 
 
     //Getting a list of Data

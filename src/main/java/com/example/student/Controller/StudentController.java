@@ -16,14 +16,17 @@ public class StudentController {
     private StudentService studentService;
 
     @PostMapping("/addlist")
-    public ResponseEntity<List<Student>> addlist(@RequestBody List<Student> student) {
-        return ResponseEntity.ok(studentService.addData(student));
-    }
+public ResponseEntity<Boolean> addlist(@RequestBody List<Student> student) {
+    boolean isAdded = studentService.addData(student);
+    return ResponseEntity.ok(isAdded);
+}
 
-    @PostMapping("/add")
-    public ResponseEntity<Student> add(@RequestBody Student student) {
-        return ResponseEntity.ok(studentService.add(student));
-    }
+
+@PostMapping("/add")
+public ResponseEntity<Boolean> add(@RequestBody Student student) {
+    boolean isAdded = studentService.add(student);
+    return ResponseEntity.ok(isAdded);
+}
 
     @GetMapping("/get")
     public ResponseEntity<List<Student>> get() {

@@ -34,19 +34,6 @@ public class SubjectService {
         }
     }
 
-    // Method to delete a Subject by its name
-    public void deleteByName(String name) {
-        // Find the subject by name
-        Optional<Subject> subject = subjectRepository.findByName(name);
 
-        // Check if the subject exists
-        if (subject.isPresent()) {
-            // If it exists, delete it
-            subjectRepository.delete(subject.get());
-        } else {
-            // Handle the case where the subject is not found
-            throw new EntityNotFoundException("Subject not found with name: " + name);
-        }
-    }
 
 }
