@@ -51,11 +51,11 @@ public class StudentService {
         for (Student student : std.values()) {
             if (student.getStudentName().equalsIgnoreCase(name)) {  // Check for matching names
                 System.out.println(student);
-                return student;  // Return the found student
+                return student;  
             }
         }
 
-        return null;  // Return null if no matching student is found
+        return null;  
     }
 
 
